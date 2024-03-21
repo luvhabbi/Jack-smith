@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Password Protection</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+		}
+		#password-input {
+			width: 500px;
+			height: 50px;
+			font-size: 24px;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		.password-form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 200px;
+		}
+		.password-form input {
+			margin-bottom: 10px;
+		}
+		#password-submit {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="password-form">
+		<input type="password" id="password-input" placeholder="Enter password" onkeydown="handleKeyDown(event)">
+		<button id="password-submit" onclick="checkPassword()">Submit</button>
+	</div>
+
+	<script>
+		function handleKeyDown(event) {
+			if (event.keyCode === 13) {
+				checkPassword();
+			}
+		}
+
+		function checkPassword() {
+			const inputPassword = document.getElementById("password-input").value;
+			if (inputPassword === "Kingrookie") {
+				window.location.href = "test.html";
+			} else {
+				alert("Incorrect password!");
+			}
+		}
+	</script>
+</body>
+</html>
