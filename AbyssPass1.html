@@ -7,12 +7,14 @@
 			background-color: black;
 			color: white;
 		}
-		#password-input {
-			width: 500px;
-			height: 50px;
-			font-size: 24px;
+		#username-input, #password-input {
+			width: 300px; /* Updated from 500px to 300px */
+			height: 40px; /* Updated from 50px to 40px */
+			font-size: 20px; /* Updated from 24px to 20px */
 			padding: 10px;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
+			border-radius: 10px;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 		}
 		.password-form {
 			display: flex;
@@ -30,7 +32,8 @@
 </head>
 <body>
 	<div class="password-form">
-		<input type="password" id="password-input" placeholder="Enter password" onkeydown="handleKeyDown(event)">
+		<p>Username: <input type="text" id="username-input" onkeydown="handleKeyDown(event)" onfocus="this.value=''" autocomplete="off" required></p>
+		<p>Password: <input type="password" id="password-input" onkeydown="handleKeyDown(event)" onfocus="this.value=''" autocomplete="off" required></p>
 		<button id="password-submit" onclick="checkPassword()">Submit</button>
 	</div>
 
@@ -42,11 +45,12 @@
 		}
 
 		function checkPassword() {
+			const inputUsername = document.getElementById("username-input").value;
 			const inputPassword = document.getElementById("password-input").value;
-			if (inputPassword === "Kingrookie") {
+			if (inputUsername === "Proxy" && inputPassword === "Proxy") {
 				window.location.href = "abyss1.html";
 			} else {
-				alert("Incorrect password!");
+				alert("Incorrect username or password!");
 			}
 		}
 	</script>
